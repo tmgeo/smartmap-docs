@@ -1,13 +1,27 @@
-- Getting started
+- [Tutorial](/getting-started.md)
 
-  - [Quick start](quickstart.md)
-  - [Writing more pages](more-pages.md)
-  - [Custom navbar](custom-navbar.md)
-  - [Cover page](cover.md)
+  - [Leaflet](/leaflet.md)
+  - [OpenLayers](#)
+  - [React](#)
+  - [React Native](#)
+  - [QGIS](#)
+  - [Tableau](#)
+  - [ArcGIS](#)
 
-- Configuration
-  - [Configuration](configuration.md)
-  - [Themes](themes.md)
-  - [Using plugins](plugins.md)
-  - [Markdown configuration](markdown.md)
-  - [Language highlight](language-highlight.md)
+- [Smartmap API](#)
+
+  - [Features](/features.md)
+  - [Website](http://lbd-landing.ga/)
+  - [Pricing](http://lbd-landing.ga/pricing)
+  - [Blog](http://lbd-landing.ga/blog)
+  - [API Sandbox](#)
+  - [Open Innovative Platform Store](#)
+
+- [Other Products](#)
+
+  - [SmartMap API](/)
+  - [SmartMap Analytics](#)
+  - [SmartMap Desktop](#)
+  - [Smart Data Management](#)
+
+- [Contact Us](#)
