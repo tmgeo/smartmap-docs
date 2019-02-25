@@ -2,11 +2,12 @@
 
 # Smartmap API <small>ALPHA</small>
 
-> A magical documentation site generator.
+> The best Malaysia map
 
-- Simple and lightweight (~21kB gzipped)
-- No statically built html files
-- Multiple themes
+- The most comprehensive digital map for Malaysia (up to property lot)
+- Competitive pricing
+- Available for web & mobile platform
+- Integrate with GIS Software such as QGIS
 
 [OIP Store](https://store.oip.tm.com.my/stores/)
-[Get Started](#docsify)
+[Get Started](/getting-started.md)

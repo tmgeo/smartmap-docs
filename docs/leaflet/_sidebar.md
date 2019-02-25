@@ -1,4 +1,0 @@
-- [> Back](/)
-- [Basemap](/leaflet/basemap.md)
-- [Marker](/leaflet/marker.md)
-- [Search](/leaflet/search.md)

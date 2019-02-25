@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>TM Map Example: Leaflet</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+      integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+      integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+      crossorigin=""
+    ></script>
+  </head>
+
+  <body>
+    <div id="mapid"></div>
+
+    <script>
+      var myMap = L.map('mapid', {
+        zoom: 12,
+        center: [3.547128, 102.18593],
+        attributionControl: true,
+      });
+
+      var tmLayer = L.tileLayer
+        .wms(
+          'http://lbd-api.tk/api/map/wms?workspace={serverWorkspace}&api_key={accessToken}',
+          {
+            serverWorkspace: 'Malaysia_WMS',
+            accessToken:
+              'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiaEk3X1dtZ0JUaVV5QkpxSV9OZngiLCJ1c2VybmFtZSI6ImhlbG1pIiwidXNlcl90eXBlIjoidXNlciJ9LCJpYXQiOjE1NTA3MjI5NzIsImV4cCI6MTU4MjI4MDU3Mn0.u7jqSSJ9efAJkwMHaqhxivGh5AGSCsx0xw0E-eKmLKw',
+            layers: 'Malaysia:TMSmartmap',
+            format: 'image/png',
+            crs: L.CRS.EPSG4326,
+            tiled: true,
+            transparent: true,
+            attribution: 'TM SmartMap © 2019 Telekom Malaysia',
+          }
+        )
+        .addTo(myMap);
+
+      L.marker([3.5386074988941454, 102.15105056762697])
+        .addTo(myMap)
+        .bindPopup('<b>Hello world!</b><br />I am a popup.')
+        .openPopup();
+
+      L.circle([3.5463175009986707, 102.17890625000001], 1500, {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+      })
+        .addTo(myMap)
+        .bindPopup('I am a circle.');
+
+      L.polygon([
+        [3.547859493708359, 102.191219329834],
+        [3.547859493708359, 102.21954345703125],
+        [3.528156060302918, 102.18915939331056],
+      ])
+        .addTo(myMap)
+        .bindPopup('I am a polygon.');
+
+      var popup = L.popup();
+
+      // popup lat lng when click on map
+      /* myMap.on('click', function(e) {
+            alert("Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng)
+        }); */
+    </script>
+  </body>
+</html>

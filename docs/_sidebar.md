@@ -1,4 +1,8 @@
 - [Home](/)
-- Getting Started
-  - [Leaflet](/leaflet/README.md)
-  - [OpenLayers](/openlayers/README.md)
+- [Features](/features.md)
+- [Getting Started](/getting-started.md)
+  - [Leaflet](/leaflet.md)
+  - [OpenLayers](/openlayers.md)
+  - [React](/react.md)
+  - [React Native](/react-native.md)
+  - [Wordpress](/wordpress.md)
