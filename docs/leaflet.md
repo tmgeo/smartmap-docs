@@ -101,22 +101,28 @@ Besides tile layers, you can easily add other things to your map, including mark
 
 Besides tile layers, you can easily add other things to your map, including markers, polylines, polygons, circles, and popups. Let’s add a marker:
 
+```javascript
 var marker = L.marker([51.5, -0.09]).addTo(mymap);
+```
+
 Adding a circle is the same (except for specifying the radius in meters as a second argument), but lets you control how it looks by passing options as the last argument when creating the object:
 
 ```javascript
 var circle = L.circle([51.508, -0.11], {
-    color: 'red',
-    fillColor: '#f03',
-    fillOpacity: 0.5,
-    radius: 500
+  color: 'red',
+  fillColor: '#f03',
+  fillOpacity: 0.5,
+  radius: 500,
 }).addTo(mymap);
+```
+
 Adding a polygon is as easy:
 
+```javascript
 var polygon = L.polygon([
-    [51.509, -0.08],
-    [51.503, -0.06],
-    [51.51, -0.047]
+  [51.509, -0.08],
+  [51.503, -0.06],
+  [51.51, -0.047],
 ]).addTo(mymap);
 ```
 
@@ -124,10 +130,67 @@ var polygon = L.polygon([
 
 <iframe width="100%" height="650" src="_examples/leaflet/withSearch.html" /></iframe>
 
-Aliqua quis dolore ipsum amet. Cupidatat reprehenderit excepteur aliqua excepteur qui consectetur deserunt deserunt reprehenderit duis laboris ut officia anim. Minim sunt officia mollit est. Amet occaecat aliquip dolore aliquip ipsum pariatur laboris nulla ea exercitation esse ut fugiat. Aute cupidatat reprehenderit irure qui officia eiusmod non sit ad excepteur sunt consectetur irure sunt. Proident velit tempor ipsum pariatur dolore proident velit mollit quis incididunt laboris. Nostrud dolore esse ut ipsum consequat sunt in mollit.
+To search location and display marker on map.
 
-Et mollit ex culpa mollit voluptate incididunt irure aliqua aliqua exercitation dolore proident. Reprehenderit duis pariatur quis non et aute sint deserunt. Lorem et magna mollit nulla adipisicing anim consequat reprehenderit aute minim. Officia amet magna do in aliquip. Do aliqua commodo ipsum quis.
+Create Text Search with Button in body
 
-Irure sint aute culpa nostrud amet quis tempor magna fugiat magna. Ut sint aliquip sit consequat sit veniam ut aliquip qui ullamco cillum in. Aliquip incididunt aliquip irure exercitation magna. In eu minim amet tempor esse dolor ea. Culpa laborum irure aute exercitation ipsum excepteur.
+```html
+<label for="inp" class="inp">
+  <input
+    type="text"
+    id="inp"
+    placeholder="&nbsp;"
+    onkeypress="showMarkers(event, 'search')"
+  />
+  <span class="label">Search</span>
+  <button class="btn" disabled id="but" onclick="showMarkers(event, 'search')">
+    <i class="fas fa-search icon"></i>
+  </button>
+  <button class="btn" onclick="removeMarkers('remove')">
+    <i class="fas fa-times icon"></i>
+  </button>
+</label>
+```
 
-Qui laborum sunt ipsum aliquip esse irure nisi laborum velit. Eu non do commodo qui ex aute occaecat incididunt anim. Consectetur ipsum Lorem ad ea eiusmod. Est anim consequat Lorem incididunt dolore nulla. Est consectetur eiusmod sint adipisicing velit cupidatat minim enim consequat esse tempor reprehenderit.
+Now add function showMarkers() in script
+
+```javascript
+function showMarkers(e, type) {
+  var value = document.getElementById('inp').value;
+  if (value !== '') {
+    document.getElementById('but').disabled = false;
+  } else {
+    document.getElementById('but').disabled = true;
+  }
+  if (e.keyCode === 13 || e.keyCode === undefined) {
+    removeMarkers(type);
+    fetch(`http://lbd-api.tk/api/poi?api_key={YOUR_TOKEN_HERE}&q=${value}`)
+      .then(res => res.json())
+      .then(data => {
+        data.map(data => {
+          arrayMarkers.push(
+            L.marker([data.location.lat, data.location.lon])
+              .addTo(myMap)
+              .bindPopup(`${data.formatted_address}`)
+              .openPopup()
+          );
+        });
+      });
+  }
+}
+```
+
+And add function removeMarkers() in script
+
+```javascript
+var arrayMarkers = [];
+function removeMarkers(type) {
+  if (arrayMarkers.length > 0) {
+    arrayMarkers.map(marker => {
+      myMap.removeLayer(marker);
+    });
+    if (type !== 'search') document.getElementById('inp').value = '';
+    document.getElementById('but').disabled = true;
+  }
+}
+```
