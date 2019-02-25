@@ -1,6 +1,10 @@
 # Leaflet
 
-Leaflet is ...
+## Introduction
+
+Leaflet is the leading open-source JavaScript library for mobile-friendly interactive maps. Weighing just about 38 KB of JS, it has all the mapping features most developers ever need. Leaflet is designed with simplicity, performance and usability in mind.
+
+This is a tutorial on how to use Leaflet library to consume TM Smartmap API in your own custom application.
 
 ## Dependencies
 
@@ -93,7 +97,7 @@ Whenever using anything based on OpenStreetMap, an attribution is obligatory as 
 
 Besides tile layers, you can easily add other things to your map, including markers, polylines, polygons, circles, and popups. Let’s add a marker:
 
-<iframe width="100%" height="650" src="_examples/leaflet/withSearch.html" /></iframe>
+<iframe width="100%" height="650" src="_examples/leaflet/withMarker.html" /></iframe>
 
 Besides tile layers, you can easily add other things to your map, including markers, polylines, polygons, circles, and popups. Let’s add a marker:
 
@@ -118,7 +122,7 @@ var polygon = L.polygon([
 
 ## Search
 
-<iframe width="100%" height="650" src="_examples/leaflet/withMarker.html" /></iframe>
+<iframe width="100%" height="650" src="_examples/leaflet/withSearch.html" /></iframe>
 
 Aliqua quis dolore ipsum amet. Cupidatat reprehenderit excepteur aliqua excepteur qui consectetur deserunt deserunt reprehenderit duis laboris ut officia anim. Minim sunt officia mollit est. Amet occaecat aliquip dolore aliquip ipsum pariatur laboris nulla ea exercitation esse ut fugiat. Aute cupidatat reprehenderit irure qui officia eiusmod non sit ad excepteur sunt consectetur irure sunt. Proident velit tempor ipsum pariatur dolore proident velit mollit quis incididunt laboris. Nostrud dolore esse ut ipsum consequat sunt in mollit.
 
