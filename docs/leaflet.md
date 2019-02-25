@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Leaflet is the leading open-source JavaScript library for mobile-friendly interactive maps. Weighing just about 38 KB of JS, it has all the mapping features most developers ever need. Leaflet is designed with simplicity, performance and usability in mind.
+Leaflet is the leading :100: open-source JavaScript library for mobile-friendly interactive maps. Weighing just about 38 KB of JS, it has all the mapping features most developers ever need. Leaflet is designed with simplicity, performance and usability in mind.
 
 This is a tutorial on how to use Leaflet library to consume TM Smartmap API in your own custom application.
 
